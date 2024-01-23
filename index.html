@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cliente MQTT Web</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"> <!-- Vincula el archivo CSS -->
+    <link rel="stylesheet" href="./termometer/termometer.css"> <!-- Vincula el archivo CSS del termómetro -->
+</head>
+<body>
+    <h1>Cliente MQTT Web</h1>
+    <div id="status">Status: Desconectado</div>
+    <div id="messages">
+        <!-- Agrega el termómetro aquí -->
+        <div id="wrapper">   
+            <div id="termometer">
+                <div id="mercury" style="height:0" data-value="0°C"></div>
+                <div id="graduations"></div>
+            </div>
+            
+            <div id="playground">        
+                <div id="range">                    
+                    <p><span>Min: </span><input id="minTemp" type="text" value="-20"></p>
+                    <p><span>Max: </span><input id="maxTemp" type="text" value="50"></p>
+                </div>
+                <div id="range">  
+                    <p id="unit">Celcius C°</p>
+                </div>
+            </div>
+           
+        </div>
+        <!-- Fin del termómetro -->
+        <p id="temperature">Temperatura actual: ?</p>
+        <p id="parking">Estado del estacionamiento: ?</p>       
+    </div>
+    <div id="chat-container">
+        <h3>Log de mensajes</h3>
+        <div id="chat-messages"></div> <!-- Ventana de chat como bloque separado -->
+        <h3>Publicar mensajes</h3>
+        <input type="text" id="topic-input" class="chat-input" placeholder="Topic">
+        <input type="text" id="message-input" class="chat-input" placeholder="Mensaje">
+        <button id="send-button" class="chat-button">Enviar</button>
+    </div>
+
+    <script src="./paho.javascript-1.0.3/paho-mqtt-min.js"></script>
+    <script src="./paho.javascript-1.0.3/paho-mqtt.js"></script>
+    <script src="app.js"></script>
+    <script src="./termometer/termometer.js"></script> <!-- Asegúrate de cargar el script del termómetro después de los demás -->
+</body>
+</html>
