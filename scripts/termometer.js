@@ -1,3 +1,4 @@
+
 const units = {
 	Celcius: "°C",
 	Fahrenheit: "°F"
@@ -39,6 +40,8 @@ unitP.addEventListener("click", () => {
 	return setTemperature();
 })
 
+
+
 // Change temperature
 const temperature = document.getElementById("mercury");
 
@@ -47,6 +50,6 @@ function setTemperature() {
 	temperature.style.height = (config.currentTemp - config.minTemp) / (config.maxTemp - config.minTemp) * 100 + "%";
     temperature.dataset.value = config.currentTemp + units[config.unit];
 }
-range.addEventListener("input", setTemperature);
+
 setTimeout(setTemperature, 1000);
 

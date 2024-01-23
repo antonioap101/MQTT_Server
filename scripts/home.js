@@ -1,5 +1,6 @@
-console.log("app.js start\n");
 
+
+console.log("Loading home");
 // Dirección y puerto del servidor MQTT
 var mqttServerAddress = "localhost"; // Cambia "localhost" por la dirección del servidor MQTT si es diferente
 var mqttServerPort = 9001; // Puerto predeterminado para MQTT
@@ -12,8 +13,15 @@ client.onConnectionLost = onConnectionLost;
 client.onMessageArrived = onMessageArrived;
 
 // Obtener el elemento "status" por su id
+
+
 var statusElement = document.getElementById("status");
+var statusTextElement = document.getElementById("status-text");
 var messagesElement = document.getElementById("messages");
+
+console.log("SE: ", statusElement);
+console.log("STE: ", statusTextElement);
+
 
 // Variable para rastrear si la conexión está activa
 var isConnected = false;
@@ -29,7 +37,9 @@ function onConnect() {
   console.log("Connected to MQTT broker");
 
   // Actualizar el contenido del elemento "status" cuando la conexión tiene éxito
-  statusElement.innerText = "Status: Conectado";
+  statusTextElement.innerText = "Conectado";  
+  statusElement.classList.remove("disconnected");
+  statusElement.classList.add("connected");
 
   // Marcar la conexión como activa
   isConnected = true;
@@ -53,7 +63,9 @@ function onConnectionLost(responseObject) {
     console.log("Connection lost: " + responseObject.errorMessage);
 
     // Actualizar el contenido del elemento "status" cuando la conexión se pierde
-    statusElement.innerText = "Status: Desconectado";
+  statusTextElement.innerText = "Desconectado";  
+  statusElement.classList.remove("connected");
+  statusElement.classList.add("disconnected");
 
     // Marcar la conexión como inactiva
     isConnected = false;
@@ -126,3 +138,5 @@ sendButton.addEventListener("click", function () {
     alert("La conexión MQTT no está activa. Por favor, espera a que se conecte.");
   }
 });
+
+console.log("Loaded home");

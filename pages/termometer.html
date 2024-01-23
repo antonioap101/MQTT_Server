@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Termometer</title>        
-        <link rel="stylesheet" href="termometer.css">
+        <link rel="stylesheet" href="../styles/termometer.css">
     </head>
     <body>
         <div id="wrapper">   
@@ -14,16 +14,18 @@
             </div>
             
             <div id="playground">        
-                <div id="range">
-                    <input id="minTemp" type="text" value="-20">
-                    <input type="range" min="-20" max="50" value="42">
-                    <input id="maxTemp" type="text" value="50">
+                <div id="range">                    
+                    <p><span>Min: </span><input id="minTemp" type="text" value="-20"></p>
+                    <p><span>Max: </span><input id="maxTemp" type="text" value="50"></p>
                 </div>
-                <p id="unit">Celcius C°</p>
+                <div id="range">  
+                    <p id="unit">Celcius C°</p>
+                </div>
             </div>
+           
             
             <p id="info">Click on the values to change them!</p>
         </div>
-        <script src="termometer.js"></script>
+        <script src="../scripts/termometer.js"></script> <!-- Asegúrate de cargar el script del termómetro después de los demás -->
     </body>
     </html>

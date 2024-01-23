@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta title="app" name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cliente MQTT Web</title>
+    <link rel="stylesheet" type="text/css" href="../styles/app.css"> <!-- Vincula el archivo CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+</head>
+<body>   
+    <div class="top-bar">
+        <h1>Cliente MQTT Web</h1>
+        <div id="status" class="status">
+            <i class="fa fa-circle" aria-hidden="true"></i>
+            <span>Estado:</span>
+            <span id="status-text">Desconectado</span>
+        </div>
+    </div>
+    <!-- Contenedor de contenido dinámico -->
+    <div id="content-container">
+        <!-- Aquí se cargará el contenido de las páginas -->
+    </div>
+
+    <!-- Barra de navegación inferior -->
+    <div class="navbar">
+        <a href="#home"><i class="fas fa-home"></i></a>
+        <a href="#temperature"><i class="fa fa-thermometer-half" aria-hidden="true"></i></a>
+        <a href="#parking"><i class="fas fa-parking    "></i></a>
+        <a href="#humidity"><i class="fa-solid fa-droplet"></i></a>
+        <a href="#smoke"><i class="fa fa-cloud" aria-hidden="true"></i></a>
+        <a href="#fire"><i class="fa fa-fire" aria-hidden="true"></i>
+    </div>         
+    <script src="../assets/paho.javascript-1.0.3/paho-mqtt-min.js"></script>
+    <script src="../assets/paho.javascript-1.0.3/paho-mqtt.js"></script>
+    <script src="../scripts/app.js"></script>         
+   
+</body>
+</html>

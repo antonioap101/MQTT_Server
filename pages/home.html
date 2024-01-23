@@ -2,14 +2,15 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta title="home" name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cliente MQTT Web</title>
-    <link rel="stylesheet" type="text/css" href="styles.css"> <!-- Vincula el archivo CSS -->
-    <link rel="stylesheet" href="./termometer/termometer.css"> <!-- Vincula el archivo CSS del termómetro -->
+    <link rel="stylesheet" type="text/css" href="../styles/home.css"> <!-- Vincula el archivo CSS -->
+    <link rel="stylesheet" href="../styles/termometer.css"> <!-- Vincula el archivo CSS del termómetro -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
 </head>
 <body>
-    <h1>Cliente MQTT Web</h1>
-    <div id="status">Status: Desconectado</div>
+    
     <div id="messages">
         <!-- Agrega el termómetro aquí -->
         <div id="wrapper">   
@@ -41,10 +42,8 @@
         <input type="text" id="message-input" class="chat-input" placeholder="Mensaje">
         <button id="send-button" class="chat-button">Enviar</button>
     </div>
-
-    <script src="./paho.javascript-1.0.3/paho-mqtt-min.js"></script>
-    <script src="./paho.javascript-1.0.3/paho-mqtt.js"></script>
-    <script src="app.js"></script>
-    <script src="./termometer/termometer.js"></script> <!-- Asegúrate de cargar el script del termómetro después de los demás -->
+    <script src="../scripts/termometer.js"></script> <!-- Asegúrate de cargar el script del termómetro después de los demás -->
+    <script src="../scripts/home.js"></script>  
+    
 </body>
 </html>
