@@ -1,0 +1,55 @@
+
+
+/* Agregar estilos para la barra superior */
+.top-bar {
+    background-color: #f5f5f5;
+    color: rgb(0, 0, 0);
+    padding: 20px;
+    display: block;    
+    justify-content: center;
+    align-items: center;
+}
+
+.top-bar h1 {
+    margin: 0;
+}
+
+/* Estilos para el título y el estado */
+.top-bar #status {
+    margin-top: 10px;
+    text-align: center;
+    color: #555;
+    font-size: 14px;
+}
+
+/* Estilos para el icono de estado (status-icon) */
+.fa-circle { 
+    color: red; /* Por defecto, asumimos desconectado (rojo) */
+    margin-right: 5px;
+    animation: pulse 1s infinite alternate; /* Animación de pulsación */
+}
+
+/* Estilos para el texto de estado (status-text) */
+#status-text {
+    font-size: 14px;
+}
+
+/* Animación de pulsación para el icono de estado (status-icon) */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1.2);
+    }
+}
+
+/* Estilos para el estado conectado (verde) */
+.connected .fa-circle {
+    color: green;
+}
+
+/* Estilos para el estado desconectado (rojo) */
+.disconnected .fa-circle {
+    color: red;
+}

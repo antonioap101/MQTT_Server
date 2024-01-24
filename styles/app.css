@@ -1,10 +1,14 @@
 /* styles.css */
+* {
+    box-sizing: border-box;
+  }
 
+  
 body {
     font-family: Arial, sans-serif;
     background-color: #f5f5f5;
     margin: 0;
-    padding: 0;
+    padding: 0;    
 }
 
 h1 {
@@ -13,96 +17,9 @@ h1 {
     margin-top: 20px;
 }
 
-
-/* Agregar estilos para la barra superior */
-.top-bar {
-    background-color: #f5f5f5;
-    color: rgb(0, 0, 0);
-    padding: 20px;
-    display: block;    
-    justify-content: center;
-    align-items: center;
-}
-
-.top-bar h1 {
-    margin: 0;
-}
-
-/* Estilos para el título y el estado */
-.top-bar #status {
-    margin-top: 10px;
-    text-align: center;
-    color: #555;
-    font-size: 14px;
-}
-
-/* Estilos para el icono de estado (status-icon) */
-.fa-circle { 
-    color: red; /* Por defecto, asumimos desconectado (rojo) */
-    margin-right: 5px;
-    animation: pulse 1s infinite alternate; /* Animación de pulsación */
-}
-
-/* Estilos para el texto de estado (status-text) */
-#status-text {
-    font-size: 14px;
-}
-
-/* Animación de pulsación para el icono de estado (status-icon) */
-@keyframes pulse {
-    0% {
-        transform: scale(1);
-    }
-    100% {
-        transform: scale(1.2);
-    }
-}
-
-/* Estilos para el estado conectado (verde) */
-.connected .fa-circle {
-    color: green;
-}
-
-/* Estilos para el estado desconectado (rojo) */
-.disconnected .fa-circle {
-    color: red;
-}
-
-
-/* Estilos para la barra de navegación inferior */
-.navbar {
-    display: flex; /* Activar flexbox en el contenedor */
-    justify-content: center; /* Centrar elementos horizontalmente */
-    align-items: center; /* Centrar elementos verticalmente */
-    background-color: #333; /* Color de fondo */
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    height: 50px; /* Altura de la barra de navegación */
-}
-
-.navbar a {
-    display: block;
-    color: #f2f2f2; /* Color del texto */
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-}
-
-/* Cambiar el color de los enlaces al pasar el ratón por encima */
-.navbar a:hover {
-    background-color: #ddd;
-    color: black;
-}
-
-/* Estilos para los iconos */
-.navbar i {
-    margin-right: 5px; /* Espacio entre el icono y el texto del enlace */
-}
-
-
-        /* Estilos para el contenedor de contenido */
+/* Estilos para el contenedor de contenido */
 #content-container {
     padding-top: 30px; /* Ajusta el espacio para la barra de tareas */
     padding-bottom: 60px; /* Ajusta el espacio para la barra de tareas */
+    align-content: center;
 }

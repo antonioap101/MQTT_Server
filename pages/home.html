@@ -1,49 +1,123 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta title="home" name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cliente MQTT Web</title>
-    <link rel="stylesheet" type="text/css" href="../styles/home.css"> <!-- Vincula el archivo CSS -->
-    <link rel="stylesheet" href="../styles/termometer.css"> <!-- Vincula el archivo CSS del termómetro -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <meta charset="UTF-8">
+  <meta title="home" name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cliente MQTT Web</title>
+  <link rel="stylesheet" type="text/css" href="../styles/home.css"> <!-- Vincula el archivo CSS -->
+  <link rel="stylesheet" type="text/css" href="../styles/humidity.css"> <!-- Vincula el archivo CSS -->
+  <link rel="stylesheet" type="text/css" href="../styles/fire.css"> <!-- Vincula el archivo CSS -->
+  <link rel="stylesheet" type="text/css" href="../styles/smoke.css"> <!-- Vincula el archivo CSS -->
+  <link rel="stylesheet" href="../styles/termometer.css"> <!-- Vincula el archivo CSS del termómetro -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 </head>
+
 <body>
-    
-    <div id="messages">
-        <!-- Agrega el termómetro aquí -->
-        <div id="wrapper">   
-            <div id="termometer">
-                <div id="mercury" style="height:0" data-value="0°C"></div>
-                <div id="graduations"></div>
-            </div>
-            
-            <div id="playground">        
-                <div id="range">                    
-                    <p><span>Min: </span><input id="minTemp" type="text" value="-20"></p>
-                    <p><span>Max: </span><input id="maxTemp" type="text" value="50"></p>
-                </div>
-                <div id="range">  
-                    <p id="unit">Celcius C°</p>
-                </div>
-            </div>
-           
+  <div id="sensor-data" class="sensor-data">
+    <!-- Inicio del termómetro -->
+    <div class="temperature">
+      <div id="wrapper">
+        <div id="termometer">
+          <div id="mercury" style="height:0" data-value="0°C"></div>
+          <div id="graduations"></div>
         </div>
-        <!-- Fin del termómetro -->
-        <p id="temperature">Temperatura actual: ?</p>
-        <p id="parking">Estado del estacionamiento: ?</p>       
+
+        <div id="playground">
+          <div id="range">
+          </div>
+        </div>
+      </div>
     </div>
-    <div id="chat-container">
-        <h3>Log de mensajes</h3>
-        <div id="chat-messages"></div> <!-- Ventana de chat como bloque separado -->
-        <h3>Publicar mensajes</h3>
-        <input type="text" id="topic-input" class="chat-input" placeholder="Topic">
-        <input type="text" id="message-input" class="chat-input" placeholder="Mensaje">
-        <button id="send-button" class="chat-button">Enviar</button>
+    <!-- Fin del termómetro -->
+    <!-- Inicio de la humedad -->
+    <div class="humidity">
+      <div class="box">
+        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+          style="display:   none;   ">
+          <symbol id="wave">
+            <path d="M420,20c21.5-0.4,38.8-2.5,51.1-4.5c13.4-2.2,26.5-5.2,27.3-5.4C514,6.5,518,4.7,528.5,2.7c7.1-1.3,17.9-2.8,31.5-2.7c0,0,0,0,0,0v20H420z"></path>
+            <path d="M420,20c-21.5-0.4-38.8-2.5-51.1-4.5c-13.4-2.2-26.5-5.2-27.3-5.4C326,6.5,322,4.7,311.5,2.7C304.3,1.4,293.6-0.1,280,0c0,0,0,0,0,0v20H420z"></path>
+            <path d="M140,20c21.5-0.4,38.8-2.5,51.1-4.5c13.4-2.2,26.5-5.2,27.3-5.4C234,6.5,238,4.7,248.5,2.7c7.1-1.3,17.9-2.8,31.5-2.7c0,0,0,0,0,0v20H140z"></path>
+            <path d="M140,20c-21.5-0.4-38.8-2.5-51.1-4.5c-13.4-2.2-26.5-5.2-27.3-5.4C46,6.5,42,4.7,31.5,2.7C24.3,1.4,13.6-0.1,0,0c0,0,0,0,0,0l0,20H140z"></path>
+          </symbol>
+        </svg>
+        <div class="percent">
+          <div class="percentNum" id="count">0</div>
+          <div class="percentB">%</div>
+        </div>
+        <div id="water" class="water">
+          <svg viewBox="0 0 560 20" class="water_wave water_wave_back">
+            <use xlink:href="#wave"></use>
+          </svg>
+          <svg viewBox="0 0 560 20" class="water_wave water_wave_front">
+            <use xlink:href="#wave"></use>
+          </svg>
+        </div>
+      </div>
     </div>
-    <script src="../scripts/termometer.js"></script> <!-- Asegúrate de cargar el script del termómetro después de los demás -->
-    <script src="../scripts/home.js"></script>  
-    
+    <!-- Fin de la humedad -->
+    <!-- Inicio del fuego-->
+    <div class="fire">
+      <div class="value">10nm</div> <!-- Agrega el texto que desees aquí -->
+      <div class="fire-left">
+        <div class="main-fire"></div>
+        <div class="particle-fire"></div>
+      </div>
+      <div class="fire-center">
+        <div class="main-fire"></div>
+        <div class="particle-fire"></div>
+      </div>
+      <div class="fire-right">
+        <div class="main-fire"></div>
+        <div class="particle-fire"></div>
+      </div>
+      <div class="fire-bottom">
+        <div class="main-fire"></div>
+      </div>
+    </div>
+    <!-- Final del fuego-->
+    <!-- Inicio del gas/humo-->
+    <div class="smoke">
+      <div id="smoke-balls">
+        <span class="s0"></span>
+        <span class="s1"></span>
+        <span class="s2"></span>
+        <span class="s3"></span>
+        <span class="s4"></span>
+        <span class="s5"></span>
+        <span class="s6"></span>
+        <span class="s7"></span>
+        <span class="s8"></span>
+        <span class="s9"></span>
+        <div class="value">40ppm</div> <!-- Agrega el texto que desees aquí -->
+      </div>
+    </div>
+    <!-- Fin del gas/humo-->
+  </div>
+
+
+  <div id="messages">
+    <p id="temperature-txt">Temperatura actual: ?</p>
+    <p id="humidity-txt">Humedad actual: ?</p>
+    <p id="fire-txt">Fuego : ?</p>
+    <p id="parking-txt">Estado del estacionamiento: ?</p>
+  </div>
+  <div id="chat-container">
+    <h3>Log de mensajes</h3>
+    <div id="chat-messages"></div> <!-- Ventana de chat como bloque separado -->
+    <h3>Publicar mensajes</h3>
+    <input type="text" id="topic-input" class="chat-input" placeholder="Topic">
+    <input type="text" id="message-input" class="chat-input" placeholder="Mensaje">
+    <button id="send-button" class="chat-button">Enviar</button>
+  </div>
+  <script src="../scripts/termometer.js"></script>
+  <!-- Asegúrate de cargar el script del termómetro después de los demás -->
+  <script src="../scripts/humidity.js"></script>
+  <!-- Asegúrate de cargar el script del termómetro después de los demás -->
+  <script src="../scripts/home.js"></script>
+
 </body>
+
 </html>

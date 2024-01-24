@@ -29,16 +29,6 @@ tempValueInputs.forEach((input) => {
 	});
 });
 
-// Switch unit of temperature
-
-const unitP = document.getElementById("unit");
-
-unitP.addEventListener("click", () => {
-    console.log("Click");
-	config.unit = config.unit === "Celcius" ? "Fahrenheit" : "Celcius";
-	unitP.innerHTML = config.unit + ' ' + units[config.unit];
-	return setTemperature();
-})
 
 
 

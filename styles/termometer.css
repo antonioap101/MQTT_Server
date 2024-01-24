@@ -1,7 +1,6 @@
 @import url("https://fonts.googleapis.com/css?family=Jaldi&display=swap");
 
 #wrapper {
-  margin: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -15,15 +14,16 @@
 }
 
 #termometer {
-  width: 25px;
+  width: 35px;
   background: #38383f;
-  height: 240px;
+  height: 150px;
   position: relative;
-  border: 9px solid #2a2a2e;
+  border: 7px solid #2a2a2e;
   border-radius: 20px;
   z-index: 1;
-  margin-bottom: 50px;
+  margin-bottom: 25px;
 }
+
 #termometer:before, #termometer:after {
   position: absolute;
   content: "";
@@ -42,7 +42,7 @@
   height: 50px;
   background-color: #3dcadf;
   bottom: -41px;
-  border: 9px solid #2a2a2e;
+  border: 7px solid #2a2a2e;
   z-index: -3;
   left: 50%;
 }
@@ -64,10 +64,10 @@
 }
 #termometer #mercury {
   bottom: 0;
-  background: linear-gradient(#f17a65, #3dcadf) no-repeat bottom;
+  background: linear-gradient(#f06c55, #3dcadf) no-repeat bottom;
   width: 100%;
   border-radius: 20px;
-  background-size: 100% 240px;
+  background-size: 100%;
   transition: all 0.2s ease-in-out;
 }
 #termometer #mercury, #termometer #mercury:before, #termometer #mercury:after {
@@ -136,6 +136,7 @@
 }
 
 input[type=range] {
+  appearance: initial;
   -webkit-appearance: none;
   background: transparent;
   margin: calc(11px / 2) 0;

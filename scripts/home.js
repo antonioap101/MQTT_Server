@@ -92,7 +92,7 @@ function onMessageArrived(message) {
     // Actualizar el texto en "Temperatura Actual" o "Estado del Aparcamiento"
     if (message.destinationName === "temperature") {
       // Si el mensaje proviene del topic "temperature", actualizar "Temperatura Actual"
-      var temperatureElement = document.getElementById("temperature");
+      var temperatureElement = document.getElementById("temperature-txt");
       temperatureElement.innerText = "Temperatura actual: " + message.payloadString;
       config.currentTemp = parseFloat(message.payloadString);
       console.log("New msg: ", range.value, "PayloadStr: ", message.payloadString);
@@ -100,7 +100,7 @@ function onMessageArrived(message) {
       
     } else if (message.destinationName === "parking") {
       // Si el mensaje proviene del topic "parking", actualizar "Estado del Aparcamiento"
-      var parkingElement = document.getElementById("parking");
+      var parkingElement = document.getElementById("parking-txt");
       parkingElement.innerText = "Estado del estacionamiento: " + message.payloadString;
     }
     

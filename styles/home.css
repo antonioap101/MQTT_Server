@@ -1,6 +1,22 @@
-#messages {
+.sensor-data {
+    display: flex;
+    flex-direction: row;    
+    justify-content: space-evenly;
+    align-content: center;
+    align-items: center;   
+    vertical-align: middle;    
+    padding: 30px;
     max-width: 600px;
-    margin: 0 auto;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 10px; /* Bordes redondeados */
+    margin: 0px auto; /* Centro el contenedor horizontalmente */
+}
+
+#messages {
+    margin: 20px auto;
+    max-width: 600px;
     padding: 20px;
     background-color: #fff;
     border: 1px solid #ccc;
@@ -60,11 +76,19 @@
 }
 
 
-
 /* Bordes redondeados para los elementos de temperatura y parking */
-#temperature, #parking {
+#temperature-txt, #parking-txt {
     padding: 10px;
     border: 1px solid #ccc;
     background-color: #f9f9f9;
     border-radius: 5px; /* Bordes redondeados */
 }
+
+/* Establecer las dimensiones para los elementos humidity, temperature, smoke y fire */
+.humidity, .temperature, .smoke, .fire {    
+    display: inline;
+    min-width: 150px;
+    max-width: 150px;
+    /* border: 2px solid #000;  Borde de 2px sólido de color negro */
+  }
+  

@@ -1,14 +1,13 @@
 console.log("app.js start\n");
 
  // Define variables para las rutas de los archivos HTML
+ var summaryPage = "../pages/summary.html"
  var homePage = "../pages/home.html";
- var temperaturaPage = "../pages/termometer.html";
- var humedadPage = "humedad.html";
- var humoPage = "humo.html";
- var fuegoPage = "fuego.html";
+ var parkingPage = "../pages/parking.html";
+ var gardenPage = "../pages/garden.html"
 
 // Función para cargar el contenido de las páginas
-function cargarPagina(url) {
+function loadPage(url) {
     fetch(url)
         .then(response => response.text())
         .then(data => {
@@ -27,31 +26,47 @@ function cargarPagina(url) {
             });
         })
         .catch(error => console.error('Error al cargar la página', error));
+
+        
 }
 
+
+function changeSelectionTo(selected){
+    // Agrega la clase 'selected' al enlace actual y quita 'selected' de los demás
+    document.querySelectorAll(".navbar a").forEach(function (enlace) {
+        enlace.classList.remove("selected");
+    });
+    selected.classList.add("selected");
+}
+
+
 // Agrega un evento click a los enlaces de la barra de tareas
+
+document.querySelector(".navbar a[href='#summary']").addEventListener('click', function () {
+    loadPage(summaryPage);
+    changeSelectionTo(this);
+});
+
+
 document.querySelector(".navbar a[href='#home']").addEventListener('click', function () {
-    cargarPagina(homePage);
+    loadPage(homePage);
+    changeSelectionTo(this);
 });
 
-document.querySelector(".navbar a[href='#temperature']").addEventListener('click', function () {
-    cargarPagina(temperaturaPage);
+
+document.querySelector(".navbar a[href='#parking']").addEventListener('click', function () {
+    loadPage(parkingPage);
+    changeSelectionTo(this);
 });
 
-document.querySelector(".navbar a[href='#humidity']").addEventListener('click', function () {
-    cargarPagina(humedadPage);
+document.querySelector(".navbar a[href='#garden']").addEventListener('click', function () {
+    loadPage(gardenPage);
+    changeSelectionTo(this);
 });
 
-document.querySelector(".navbar a[href='#smoke']").addEventListener('click', function () {
-    cargarPagina(humoPage);
-});
-
-document.querySelector(".navbar a[href='#fire']").addEventListener('click', function () {
-    cargarPagina(fuegoPage);
-});
 
 
 // Cargar la página inicial al cargar la página principal
-cargarPagina(homePage);
+loadPage(homePage);
 
 console.log("Loaded app");
