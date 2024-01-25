@@ -6,7 +6,6 @@
     <title>Cliente MQTT Web</title>
     <link rel="stylesheet" type="text/css" href="../styles/app.css"> <!-- Vincula el archivo CSS -->
     <link rel="stylesheet" type="text/css" href="../styles/top-bar.css"> <!-- Vincula el archivo CSS -->
-    <link rel="stylesheet" type="text/css" href="../styles/nav-bar.css"> <!-- Vincula el archivo CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 </head>
@@ -24,16 +23,21 @@
         <!-- Aquí se cargará el contenido de las páginas -->
     </div>
 
-    <!-- Barra de navegación inferior -->
-    <div class="navbar">
-        <a href="#summary"><i class="fa-solid fa-list"></i></a>
-        <a href="#home" class="selected"><i class="fas fa-home"></i></a>
-        <a href="#parking"><i class="fas fa-parking    "></i></a>
-        <a href="#garden"><i class="fa fa-tree" aria-hidden="true"></i></a>
-    </div>         
+    <!-- Footer -->
+    <footer>
+        <p><strong>Asignatura:</strong> GII-IoT</p>
+        <p><strong>Autor:</strong> Antonio Aparicio González</p>
+        <p><strong>Autor:</strong> Daniel Díaz Martel</p>
+        <p><strong>Autor:</strong> Juan José Quesada Acosta</p>
+        <p><strong>Autor:</strong> Álvaro Lettieri Acosta</p>
+      </footer>   
+      
     <script src="../assets/paho.javascript-1.0.3/paho-mqtt-min.js"></script>
     <script src="../assets/paho.javascript-1.0.3/paho-mqtt.js"></script>
-    <script src="../scripts/app.js"></script>         
+    <script src="../scripts/app.js"></script> 
+    <script src="../scripts/mqtt-loader.js"></script> 
+    
+   
    
 </body>
 </html>

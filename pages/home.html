@@ -97,13 +97,16 @@
     <!-- Fin del gas/humo-->
   </div>
 
-
   <div id="messages">
-    <p id="temperature-txt">Temperatura actual: ?</p>
-    <p id="humidity-txt">Humedad actual: ?</p>
-    <p id="fire-txt">Fuego : ?</p>
-    <p id="parking-txt">Estado del estacionamiento: ?</p>
+    <p id="temperature-txt"><i class="fa fa-thermometer-half"></i><span class="icon-text-space"></span>Temperatura actual: ?</p>
+    <p id="humidity-txt"><i class="fa-solid fa-droplet"></i><span class="icon-text-space"></span>Humedad actual: ?</p>
+    <p id="fire-txt"><i class="fa-solid fa-fire"></i><span class="icon-text-space"></span>Fuego: ?</p>
+    <p id="gas-txt"><i class="fa-solid fa-cloud"></i><span class="icon-text-space"></span>Gas: ?</p>
+    <p id="parkingAccess-txt"><i class="fa-solid fa-square-parking"></i><span class="icon-text-space"></span>Acceso al parking: ?</p>
+    <p id="parkingCar-txt"><i class="fa-solid fa-car"></i><span class="icon-text-space"></span>Coche en el parking: ?</p>
+    <p id="gardenDoor-txt"><i class="fa-solid fa-key"></i><span class="icon-text-space"></span>Puerta del jardín: ?</p>
   </div>
+
   <div id="chat-container">
     <h3>Log de mensajes</h3>
     <div id="chat-messages"></div> <!-- Ventana de chat como bloque separado -->
@@ -116,7 +119,7 @@
   <!-- Asegúrate de cargar el script del termómetro después de los demás -->
   <script src="../scripts/humidity.js"></script>
   <!-- Asegúrate de cargar el script del termómetro después de los demás -->
-  <script src="../scripts/home.js"></script>
+  <script src="../scripts/home.js"></script>    
 
 </body>
 

@@ -4,7 +4,7 @@ console.log("app.js start\n");
  var summaryPage = "../pages/summary.html"
  var homePage = "../pages/home.html";
  var parkingPage = "../pages/parking.html";
- var gardenPage = "../pages/garden.html"
+ var gardenPage = "../pages/garden.html" 
 
 // Función para cargar el contenido de las páginas
 function loadPage(url) {
@@ -29,42 +29,6 @@ function loadPage(url) {
 
         
 }
-
-
-function changeSelectionTo(selected){
-    // Agrega la clase 'selected' al enlace actual y quita 'selected' de los demás
-    document.querySelectorAll(".navbar a").forEach(function (enlace) {
-        enlace.classList.remove("selected");
-    });
-    selected.classList.add("selected");
-}
-
-
-// Agrega un evento click a los enlaces de la barra de tareas
-
-document.querySelector(".navbar a[href='#summary']").addEventListener('click', function () {
-    loadPage(summaryPage);
-    changeSelectionTo(this);
-});
-
-
-document.querySelector(".navbar a[href='#home']").addEventListener('click', function () {
-    loadPage(homePage);
-    changeSelectionTo(this);
-});
-
-
-document.querySelector(".navbar a[href='#parking']").addEventListener('click', function () {
-    loadPage(parkingPage);
-    changeSelectionTo(this);
-});
-
-document.querySelector(".navbar a[href='#garden']").addEventListener('click', function () {
-    loadPage(gardenPage);
-    changeSelectionTo(this);
-});
-
-
 
 // Cargar la página inicial al cargar la página principal
 loadPage(homePage);
