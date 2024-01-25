@@ -16,8 +16,8 @@ let TopicBaseText = {
   GasDetection: 'Gas: ',
   FireDetection: 'Fuego: ',
   GardenDoorStatus: 'Puerta del jardín: ',
-  ParkingCarStatus: 'Coche en el garaje: ',
-  ParkingAccessStatus: 'Puerta del garaje: '
+  ParkingCarStatus: 'Coche en el parking: ',
+  ParkingAccessStatus: 'Acceso al parking: '
 };
 
 console.log("Loading home");
@@ -124,34 +124,37 @@ function handleTopicMessage(topicName, message) {
   //const topic = topics[key];
   switch (topicName) {
     case topics.Temperature:
-      // Manejar mensajes de temperatura
-      var temperatureElement = document.getElementById("temperature-txt");
+      // Manejar mensajes de temperatura      
+      var temperatureElement = document.getElementById("temperature-txt").querySelector(".sensor-value");
       temperatureElement.innerText = TopicBaseText.Temperature + message;
+      setTemperature(parseFloat(message));      
+      
       break;
     case topics.Humidity:
-      var humidityElement = document.getElementById("humidity-txt");
+      var humidityElement = document.getElementById("humidity-txt").querySelector(".sensor-value");
       humidityElement.innerText = TopicBaseText.Humidity + message;
+      setHumidity(parseInt(message));
       break;
     case topics.GasDetection:
-      var gasElement = document.getElementById("gas-txt");
+      var gasElement = document.getElementById("gas-txt").querySelector(".sensor-value");
       gasElement.innerText = TopicBaseText.GasDetection + message;
       break;
     case topics.FireDetection:
-      var gasElement = document.getElementById("fire-txt");
+      var gasElement = document.getElementById("fire-txt").querySelector(".sensor-value");
       gasElement.innerText = TopicBaseText.GasDetection + message;
       break;
     case topics.GardenDoorStatus:
-      var gasElement = document.getElementById("gardenDoor-txt");
+      var gasElement = document.getElementById("gardenDoor-txt").querySelector(".sensor-value");
       gasElement.innerText = TopicBaseText.GasDetection + message;
       break;
 
     case topics.ParkingCarStatus:
-      var parkingCarElement = document.getElementById("parkingCar-txt");
+      var parkingCarElement = document.getElementById("parkingCar-txt").querySelector(".sensor-value");
       parkingCarElement.innerText = TopicBaseText.ParkingCarStatus + message;
       break;
 
     case topics.ParkingAccessStatus:
-      var parkingDoorElement = document.getElementById("parkingAccess-txt");
+      var parkingDoorElement = document.getElementById("parkingAccess-txt").querySelector(".sensor-value");
       parkingDoorElement.innerText = TopicBaseText.ParkingAccessStatus + message;
       break;
 
