@@ -17,8 +17,7 @@ let config = {
 // Cambiar temperatura
 const temperature = document.getElementById("mercury");
 
-function setTemperature(newTemperature) {
-	console.log("CONFIGURANDO TEMPERATURA: ", newTemperature);
+function setTemperature(newTemperature) {	
 	config.currentTemp = newTemperature; // Actualiza el valor de la temperatura en la configuración
 	temperature.style.height = ((config.currentTemp - config.minTemp) / (config.maxTemp - config.minTemp)) * 100 + "%";
 	temperature.dataset.value = config.currentTemp + units[config.unit];

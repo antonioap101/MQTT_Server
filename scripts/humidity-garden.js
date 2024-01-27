@@ -1,6 +1,6 @@
-function setHumidity(newPercent) {
-  var cnt = document.getElementById("count");
-  var water = document.getElementById("water");
+function setHumidityGarden(newPercent) {  
+  var cnt = document.getElementById("count-garden");
+  var water = document.getElementById("water-garden");
   var percent = parseInt(cnt.innerText, 10);
   var interval;
   var step = 1;
@@ -20,4 +20,4 @@ function setHumidity(newPercent) {
 }
 
 // Ejemplo de cómo usar la función para actualizar la barra de progreso gradualmente
-setHumidity(10); // Actualiza gradualmente desde el valor actual al 50%
+setHumidityGarden(20); // Actualiza gradualmente desde el valor actual al 50%

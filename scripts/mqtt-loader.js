@@ -4,9 +4,11 @@ let topics = {
   Humidity: 'Humidity',
   GasDetection: 'GasDetection',
   FireDetection: 'FireDetection',
-  GardenDoorStatus: 'GardenDoorStatus',
+  GardenLightStatus: 'GardenLightStatus',
+  GardenSoilStatus: 'GardenSoilHumidity',
   ParkingCarStatus: 'ParkingCarStatus',
-  ParkingAccessStatus: 'ParkingAccessStatus'
+  ParkingAccessStatus: 'ParkingAccessStatus',
+  ParkingLightStatus: 'ParkingLightStatus'
 };
 
 // Estructura de los temas MQTT basados en tu JSON
@@ -15,12 +17,14 @@ let TopicBaseText = {
   Humidity: 'Humedad actual: ',
   GasDetection: 'Gas: ',
   FireDetection: 'Fuego: ',
-  GardenDoorStatus: 'Puerta del jardín: ',
+  GardenLightStatus: 'Luz del jardín: ',
+  GardenSoilStatus: 'Humedad del jardín: ',
   ParkingCarStatus: 'Coche en el parking: ',
-  ParkingAccessStatus: 'Acceso al parking: '
+  ParkingAccessStatus: 'Acceso al parking: ',
+  ParkingLightStatus: 'Luz del parking: '
 };
 
-console.log("Loading home");
+
 // Dirección y puerto del servidor MQTT
 var mqttServerAddress = "localhost"; // Cambia "localhost" por la dirección del servidor MQTT si es diferente
 var mqttServerPort = 9001; // Puerto predeterminado para MQTT
@@ -36,9 +40,6 @@ client.onMessageArrived = onMessageArrived;
 var statusElement = document.getElementById("status");
 var statusTextElement = document.getElementById("status-text");
 var messagesElement = document.getElementById("messages");
-
-console.log("SE: ", statusElement);
-console.log("STE: ", statusTextElement);
 
 
 // Variable para rastrear si la conexión está activa
@@ -102,8 +103,8 @@ function onConnectionLost(responseObject) {
 
 // Called when a message arrives
 function onMessageArrived(message) {
-  console.log("Message received: " + message.payloadString);
-  console.log("Topic: " + message.destinationName); // Obtener el topic del mensaje
+  //console.log("Message received: " + message.payloadString);
+  //console.log("Topic: " + message.destinationName); // Obtener el topic del mensaje
 
   // Verificar si la conexión está activa antes de mostrar mensajes
   if (isConnected) {
@@ -126,37 +127,53 @@ function handleTopicMessage(topicName, message) {
     case topics.Temperature:
       // Manejar mensajes de temperatura      
       var temperatureElement = document.getElementById("temperature-txt").querySelector(".sensor-value");
-      temperatureElement.innerText = TopicBaseText.Temperature + message;
-      setTemperature(parseFloat(message));      
-      
+      temperatureElement.innerText = TopicBaseText.Temperature + message + " °C";
+      setTemperature(parseFloat(message));
+
       break;
     case topics.Humidity:
       var humidityElement = document.getElementById("humidity-txt").querySelector(".sensor-value");
-      humidityElement.innerText = TopicBaseText.Humidity + message;
+      humidityElement.innerText = TopicBaseText.Humidity + message + " %";
       setHumidity(parseInt(message));
       break;
     case topics.GasDetection:
       var gasElement = document.getElementById("gas-txt").querySelector(".sensor-value");
-      gasElement.innerText = TopicBaseText.GasDetection + message;
+      gasElement.innerText = TopicBaseText.GasDetection + message + " ppm";
+      setSmokeValue(message);
       break;
     case topics.FireDetection:
       var gasElement = document.getElementById("fire-txt").querySelector(".sensor-value");
-      gasElement.innerText = TopicBaseText.GasDetection + message;
+      gasElement.innerText = TopicBaseText.FireDetection + message + " nm";
+      setFireValue(message);
       break;
-    case topics.GardenDoorStatus:
-      var gasElement = document.getElementById("gardenDoor-txt").querySelector(".sensor-value");
-      gasElement.innerText = TopicBaseText.GasDetection + message;
+    case topics.GardenLightStatus:
+      var gasElement = document.getElementById("gardenLight-txt").querySelector(".sensor-value");
+      gasElement.innerText = TopicBaseText.GardenLightStatus + ((message.toLowerCase() === "true") ? "Encendida" : "Apagada");
+      toggleDayNight(message.toLowerCase());
+      break;
+    case topics.GardenSoilStatus:
+      var gasElement = document.getElementById("gardenSoil-txt").querySelector(".sensor-value");
+      gasElement.innerText = TopicBaseText.GardenSoilStatus + message + " %";
+      setHumidityGarden(parseInt(message));
       break;
 
     case topics.ParkingCarStatus:
       var parkingCarElement = document.getElementById("parkingCar-txt").querySelector(".sensor-value");
-      parkingCarElement.innerText = TopicBaseText.ParkingCarStatus + message;
+      parkingCarElement.innerText = TopicBaseText.ParkingCarStatus + ((message.toLowerCase() === "true") ? "Ocupado" : "Libre");
+      setParkingState(message.toLowerCase());
       break;
 
     case topics.ParkingAccessStatus:
       var parkingDoorElement = document.getElementById("parkingAccess-txt").querySelector(".sensor-value");
-      parkingDoorElement.innerText = TopicBaseText.ParkingAccessStatus + message;
+      parkingDoorElement.innerText = TopicBaseText.ParkingAccessStatus + ((message.toLowerCase() === "true") ? "Desbloqueado" : "Bloqueado");
+      toggleParkingLockState(message.toLowerCase());
       break;
+
+    case topics.ParkingLightStatus:
+        var parkingLightElement = document.getElementById("parkingLight-txt").querySelector(".sensor-value");
+        parkingLightElement.innerText = TopicBaseText.ParkingLightStatus + ((message.toLowerCase() === "true") ? "Encendida" : "Apagada");
+        setParkingLightBulb(message.toLowerCase());
+        break;
 
     default:
       console.log("Topic no reconocido: " + topicName);

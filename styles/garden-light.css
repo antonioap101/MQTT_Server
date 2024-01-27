@@ -1,0 +1,165 @@
+/* Icon design greatly inspired by an svg created by Garrett Knoll: https://thenounproject.com/g_a.k_/uploads/?i=218424 */
+:root {
+  --light: #00b3ff;
+  --accent: purple;
+  --dark: #444;
+  --elem: #fff;
+  --border_color: #ccc;
+  --transformOrigin: -200% 421%;
+  --moonOffsetX: 7px;
+  --moonOffsetY: 6px;
+}
+
+*,
+*:after,
+*:before {
+  box-sizing: border-box;
+}
+
+
+
+.icon {
+  border: none;
+  position: relative;
+  width: 150px;
+  height: 150px;
+  border-radius: 100%;
+  overflow: hidden;  
+  padding: 0;
+  background-clip: padding-box;
+}
+
+.sky {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  border-radius: 100%;
+  transform: translateY(0%) translateZ(0);
+  transition: 1s;
+  background: linear-gradient(var(--light), var(--accent), var(--dark));
+  background-size: 100% 500%;
+  background-position: top left;
+}
+
+.sun {
+  position: absolute;
+  left: 66%;
+  top: 25%;
+  width: 13.5%;
+  height: 13.5%;
+  border-radius: 100%;
+  background-color: var(--elem);
+  transform-origin: var(--transformOrigin);
+  animation: loopIn 0.6s both ease-out;
+}
+
+.moon {
+  position: absolute;
+  left: 66%;
+  top: 25%;
+  width: 13.5%;
+  height: 13.5%;
+  border-radius: 100%;
+  margin-left: calc(var(--moonOffsetX) * -1);
+  margin-top: calc(var(--moonOffsetY) * -1);
+  transform-origin: var(--transformOrigin);
+  animation: loopOut 0.65s both linear;
+}
+
+.moon:after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  border-radius: 100%;
+  box-shadow: var(--moonOffsetX) var(--moonOffsetY) 0 0 var(--elem);
+  animation: loopOutMoon 0.65s both linear;
+}
+
+.mountain {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  transition: 0.4s;
+}
+
+.mountain div {
+  position: absolute;
+  width: 60%;
+  height: 60%;
+  background-color: var(--elem);
+  border-radius: 10%;
+}
+
+.m2 div:nth-of-type(1) {
+  bottom: -12%;
+  left: 10%;
+  transform: scaleX(0.85) rotate(45deg) translateZ(0);
+}
+
+.m2 div:nth-of-type(2) {
+  bottom: -30%;
+  left: 25.5%;
+  transform: scaleX(0.85) rotate(45deg) translateZ(0);
+}
+
+.m1 div {
+  opacity: 0.8;
+  bottom: -21%;
+  right: 5%;
+  transform: scaleX(0.95) rotate(45deg) translateZ(0);
+}
+
+.border {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  border: 10px solid var(--border_color);
+  transition: 1s;
+  border-radius: 100%;
+}
+
+
+@keyframes loopIn {
+  0% {
+    transform: rotate(50deg) translateZ(0);
+  }
+  100% {
+    transform: rotate(0) translateZ(0);
+  }
+}
+
+@keyframes loopOut {
+  0% {
+    transform: rotate(0deg) translateZ(0);
+  }
+  100% {
+    transform: rotate(-80deg) translateZ(0);
+  }
+}
+
+@keyframes loopOutMoon {
+  0% {
+    transform: rotate(0deg) translateZ(0);
+  }
+  100% {
+    transform: rotate(80deg) translateZ(0);
+  }
+}
+
+@keyframes loopInMoon {
+  0% {
+    transform: rotate(0deg) translateZ(0);
+  }
+  100% {
+    transform: rotate(0deg) translateZ(0);
+  }
+}

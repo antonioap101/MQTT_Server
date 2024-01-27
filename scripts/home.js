@@ -1,3 +1,4 @@
+console.log("Loading home");
 // Obtener elementos de entrada y botón
 var topicInput = document.getElementById("topic-input");
 var messageInput = document.getElementById("message-input");

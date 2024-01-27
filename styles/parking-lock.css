@@ -1,0 +1,57 @@
+.wrapper-lock {
+    position: relative;
+    top: 0%;
+    left: 0%;
+    
+    width: 150px;
+    height: 150px;
+    cursor: pointer;
+    transform: translate(0%, 5%);
+  }
+  .lock-top{
+    fill: none;
+    stroke: #02ac1e;
+    stroke-width: 5;
+    stroke-linecap: round;
+    stroke-miterlimit: 10;
+    stroke-dasharray: 300;
+    stroke-dashoffset: -30;
+    transition: all 300ms ease-out;
+  }
+  .lock-top.loaded {
+    stroke-dashoffset: 0;
+    stroke: #fa113d
+  }
+  .lock-top.loaded ~ .lock-body {
+    fill: #fa113d;
+  }
+  .lock-top.loading {
+    stroke: #000;
+    opacity: 0.3;
+  }
+  
+  .lock-outline{
+    fill: #fff;
+  }
+  .lock-body {
+    fill: #02ac1e;
+    opacity: 1;
+    transition: all 300ms ease-out;
+  }
+  .lock-body.loading{
+    fill: #000 !important;
+    opacity: 0.3;
+  }
+  
+  .lock-spinner {
+    fill: none;
+    stroke: #000;
+    stroke-width: 5;
+    stroke-linecap: round;
+    stroke-miterlimit: 10;
+    opacity: 0;
+    transition: opacity 200ms ease;
+  }
+  .lock-spinner.loading{
+    opacity: 1;
+  }
