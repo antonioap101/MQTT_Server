@@ -38,6 +38,5 @@ function toggleParkingLockState(shouldLock) {
     }
 }
 
-// Ahora puedes llamar a toggleLockState(true) o toggleLockState(false) desde cualquier parte de tu código
 // Ejemplo: toggleLockState(true); para activar el candado, toggleLockState(false); para desactivarlo
 
